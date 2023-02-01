@@ -62,13 +62,14 @@
                     <div class="mb-3">Tecnologie</div>
                     @foreach ($technologies as $technology)
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="{{$technology->slug}}" value="{{ $technology->id }}" name="technologies[]" {{ in array($technology->id, old('technologies') ) ? 'checked' : null }} >
+                            <input class="form-check-input" type="checkbox" name="technologies[]"  id="{{$technology->slug}}" value="{{ $technology->id }}" {{ in_array($technology->id, old('technologies', []) ) ? 'checked' : '' }} >
                             <label class="form-check-label" for="{{$technology->slug}}">{{$technology->name}}</label>
                         </div>
                     @endforeach
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Crea</button>
+                
             </form>
         </div>
     </div>
