@@ -76,6 +76,9 @@ class ProjectController extends Controller
         // salvo sul database
         $new_project->save();
 
+
+        $new_project->Technologies()->sync($data['technologies']);
+
         // redirect alla pagina index con messaggio nella variabile salvata in sessione
         return redirect()->route('admin.projects.index')->with('message', 'Progetto creato con successo');
         
