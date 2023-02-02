@@ -11,6 +11,11 @@ class Project extends Model
     
 
     protected $guarded = ['slug'];
+    protected $appends = ['image_url'];
+
+    protected function getImageUrlAtrribute(){
+        return $this->cover->image ? asset("storage/$this->cover_image") : "https://placeholder.com/assets/images/150x150-2-500x500.png";
+    }
 
     public function type()
     {
