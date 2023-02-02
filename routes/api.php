@@ -24,3 +24,5 @@ use Illuminate\Support\Facades\Route;
 
 //api/projects
 Route::get('projects', [ProjectController::class, 'index']);
+//api/projects/vuejs
+Route::get('projects/{slug}', [ProjectController::class, 'show']);
